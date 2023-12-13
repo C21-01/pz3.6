@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Exercise</title>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+
+    <input type="text" id="myInput">
+
+    <input type="text" id="focusInput">
+    <button id="focusButton">Click me</button>
+
+    <p>Hello, this is some text.</p>
+
+    <button id="myElement">Click me</button>
+
+    <script>
+        
+        document.getElementById("myButton").addEventListener("click", function() {
+            alert("Кнопка була натиснута!");
+        });
+
+        
+        document.getElementById("myInput").addEventListener("keydown", function() {
+            console.log("Клавіша була натиснута!");
+        });
+
+       
+        var inputElement = document.getElementById("focusInput");
+
+        inputElement.addEventListener("focus", function() {
+            console.log("Елемент отримав фокус!");
+        });
+
+        inputElement.addEventListener("blur", function() {
+            console.log("Елемент втратив фокус!");
+        });
+
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("Документ повністю завантажено!");
+        });
+
+        
+        var myElement = document.getElementById("myElement");
+
+        function firstHandler() {
+            console.log("Подія виникла!");
+        }
+
+        function secondHandler() {
+            console.log("Ще один обробник події!");
+        }
+
+        myElement.addEventListener("click", firstHandler);
+        myElement.addEventListener("click", secondHandler);
+    </script>
+</body>
+</html>
